@@ -1,0 +1,45 @@
+<div class="container">
+  <!-- <form>
+      <div class="mb-3 mt-3">
+        <label class="form-label">ID</label>
+        <input type="text" [(ngModel)]="newStudent.id" class="form-control" name="id">
+      </div>
+      <div class="mb-3 mt-3">
+        <label class="form-label">Student Name</label>
+        <input type="text" [(ngModel)]="newStudent.name" class="form-control" name="name">
+      </div>
+    
+      <div class="mb-3 mt-3">
+        <label class="form-label">Student location</label>
+        <input type="text" [(ngModel)]="newStudent.age" class="form-control" name="age">
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label class="form-label">Student location</label>
+        <input type="text" [(ngModel)]="newStudent.dep_no" class="form-control" name="dep_no">
+      </div>
+    
+      <button (click)="add()" type="submit" class="btn btn-primary">Add Stydent</button>
+    </form> -->
+    <table class="table w-75  m-auto text-center ">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Student Name</th>
+            <th>Age</th>
+            <th>Department Number</th>
+
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of student">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.dep_no}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    

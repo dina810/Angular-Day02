@@ -1,0 +1,109 @@
+<div class="container">
+  <table class="table w-75  m-auto text-center ">
+    
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th> Department Name </th>
+              <th >Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dept of department">
+              <td>{{dept.id}}</td>
+              <td>{{dept.deptname}}</td>
+              <td>{{dept.location}}</td>
+              <td>
+                <button (click)="show(dept.id)" type="button" class="btn btn-success">Show</button>
+                <button class="btn btn-primary mx-3 btn-md" data-bs-toggle="modal" data-bs-target="#edit" (click)="Edit(dept.id)"> Edit</button>
+                <button (click)="delete(dept.id)" type="button" class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          
+  
+          </tbody>
+           
+        </table>
+      
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add Department
+        </button>
+  
+        <!--Add Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Department</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3 mt-3">
+              <label class="form-label">ID</label>
+              <input type="number" [(ngModel)]="newDepartment.id" class="form-control" name="id">
+            </div>
+            <div class="mb-3 mt-3">
+              <label class="form-label">Name</label>
+              <input type="text" [(ngModel)]="newDepartment.deptname" class="form-control" name="deptName">
+            </div>
+          
+            <div class="mb-3 mt-3">
+              <label class="form-label">Location</label>
+              <input type="text" [(ngModel)]="newDepartment.location" class="form-control" name="location">
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="add()" type="button" class="btn btn-primary"data-bs-dismiss="modal" >Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+   <!--Edit Modal -->
+   <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Department </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class=" shadow mt-3 py-3">
+                    <form class="p-3">
+                        <div class="mb-3">
+                            <label class="form-label">Id</label>
+                            <input type="number" class="form-control" name="id" [(ngModel)]="deptEdit.id">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" name="deptname" [(ngModel)]="deptEdit.deptname">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" name="location" [(ngModel)]="deptEdit.location">
+                        </div>
+  
+  
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="EditDept(newDepartment.id)">Edit</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+      
+          <h1>Id :{{firstDept.id}}</h1>
+          <h1>Depaetment Name :{{firstDept.deptname}}</h1>
+          <h1>Location :{{firstDept.location}}</h1>
+        
+  </div>
+  
