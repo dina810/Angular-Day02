@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 
 import { Department } from 'src/app/_models/department';
 
@@ -9,71 +9,43 @@ import { Department } from 'src/app/_models/department';
 })
 export class DepartmentComponent implements OnInit {
 
+
+
+  // image:string[]=[
+  //   'assets/bag.PNG',
+  //   'assets/shoes.PNG',
+  //   'assets/glassess.PNG',
+  //   'assets/clothes.PNG',
   
+  // ];
+  firstImg:string='assets/bag.PNG';
+
+  // for (let i = 0; index < image.length; i++) {
+  //   if(this.image[i]==this.firstImg){
+
+  //   }
+    
+  //}
+
+  // add(){
+  //   this.department.push(new Department(this.image.images ))
+
   department:Department[]=[
-    new Department(1,"os","Mansoura"),
-    new Department(2,"sd","smart"),
-    new Department (3,"ui","alex"),
+    new Department('bag.PNG',"Bag","gdn 0011","March",20,2),
+    new Department('shoes.PNG',"shoes","gdn 0012","April",30,3),
+    new Department ('glassess.PNG',"Glassess","gmn 0013","May",40,4),
+    new Department ('clothes.PNG',"Closes","gmn 0014","Jun",50,5),
   
 
   ];
-  firstDept = new Department(1, "open source", "Mansoura")
 
-  show(id:number){
-   for (let i = 0; i < this.department.length; i++) {
-     if (this.department[i].id==id) {
-       this.firstDept=this.department[i]
+  term:string='';
 
-       break;
-     }
-     
-     
-   }
-  }
-
-  delete(id:number){
-    for (let i = 0; i < this.department.length; ++i) {
-      if (this.department[i].id==id) {
-        this.department.splice(i,1);
- 
-        break;
-      }
-      
-      
+  showImages=true;
+  imgToggle() {
+      this.showImages = !this.showImages;
     }
-
-  }
-
-  newDepartment= new Department (0,"","");
-
-  add(){
-    this.department.push(new Department(this.newDepartment.id ,this.newDepartment.deptname,this.newDepartment.location))
-  }
-
-
-  deptEdit: Department = new Department(0, "", "");
-
-  Edit(id: number) {
-    for (let i = 0; i < this.department.length; i++) {
-      if (this.department[i].id == id) {
-        this.deptEdit = this.department[i]
-        break;
-      }
-    }
-
-  }
-
-  EditDept(id: number) {
-
-    this.department.forEach(item => {
-
-      if (item.id == id) {
-        new Department(item.id = this.deptEdit.id, item.deptname = this.deptEdit.deptname, item.location = this.deptEdit.location)
-
-      }
-    });
-
-  }
+  
 
   constructor() { }
 
@@ -81,3 +53,7 @@ export class DepartmentComponent implements OnInit {
   }
 
 }
+function img(img: any) {
+  throw new Error('Function not implemented.');
+}
+

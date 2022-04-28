@@ -8,11 +8,17 @@ import { DepartmentModule } from './department/department.module';
 import { StudentModule } from './student/student.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecordsPipe } from './records.pipe';
+import { SharedModule } from './shared/shared.module';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    RecordsPipe,
+    HighlightDirective,
+   
     
 
   ],
@@ -22,7 +28,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     DepartmentModule,
     CoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
+
+  ],
+  exports:[
+    RecordsPipe,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

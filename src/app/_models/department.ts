@@ -1,9 +1,12 @@
 export class Department {
     constructor(
-        public id:number,
-        public deptname:string,
-        public location:string
-       
+        public images?:string,
+        public name?:string,
+        public code?:string,
+        public available?:string,
+        public price?:number,
+        
+         public rate:number=0,
         )
 
         {}
